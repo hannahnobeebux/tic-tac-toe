@@ -1,0 +1,157 @@
+body{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    /* Changing the color here will change it wherever there is currentColor specified */
+    color: white;
+    background-color: #96BBBB;
+    font-size: 30px;
+}
+
+#board{
+    display:grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    /* When you hover over each tile - shows that you can click it */
+    cursor: pointer;
+    /* By default, the position is static */
+    /* By using relative, we can make things stay within this div */
+    position: relative;
+}
+
+.tile{
+    /* Using currentColor will set it to the color defined IN THE BODY */
+    color: currentColor; 
+    font-size: 2em;
+    display:flex;
+    /* This will center the numbers horizontally */
+    justify-content: center;
+    /* This will center the numbers vertically */
+    align-items: center;
+}
+
+.right-border{
+    border-right: 0.2em solid #414535;
+
+}
+
+.bottom-border{
+    border-bottom: 0.2em solid #414535;
+}
+
+/* Styling the line that will show when someone wins */
+.strike {
+    position: absolute; 
+    background-color: darkred;
+}
+
+/* The "top" value was decided by trialing which value would make the line go through the X's or O's */
+
+.strike-row-1 {
+    width: 100%;
+    height: 4px; 
+    top: 15%;
+    
+}
+
+.strike-row-2 {
+    width: 100%;
+    height: 4px; 
+    top: 48%;
+    
+}
+
+.strike-row-3 {
+    width: 100%;
+    height: 4px; 
+    top: 83%;
+    
+}
+
+.strike-column-1 {
+    width: 4px;
+    height: 100%; 
+    left:15%;  
+}
+
+.strike-column-2 {
+    width: 4px;
+    height: 100%; 
+    left:48%;  
+}
+
+.strike-column-3 {
+    width: 4px;
+    height: 100%; 
+    left:83%;  
+}
+
+.strike-diagonal-1{
+    width:90%;
+    height:4px;
+    top: 50%;
+    left:5%;
+    /* We are changing the "y coordinate" to move the line from straight to diagonal */
+    transform: skewY(45deg);
+}
+
+.strike-diagonal-2{
+    width:90%;
+    height:4px;
+    top: 50%;
+    left:5%;
+    /* We are changing the "y coordinate" to move the line from straight to diagonal */
+    /* By making it negative, line is diagonal from right hand side */
+    transform: skewY(-45deg);
+}
+
+/* Styling the div that will appear when someone wins */
+#game-over-area{
+    text-align:center;
+    border: #414535 8px solid;
+    padding: 50px; 
+    width: 50%;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+h2{
+    color: currentColor;
+    font-size: 2em;
+    margin-top: 0px;
+}
+
+button{
+    background-color: transparent;
+    color: currentColor;
+    border: #C19875 1px solid; 
+    padding: 10px;
+    font-size: 1.5em; 
+    border-radius: 10px;
+
+}
+
+.hidden{
+    display:none
+}
+
+.visible{
+    /* A default way of presenting a div onto the webpage */
+    display:block;
+}
+
+h1{
+    color:currentColor;
+}
+
+/* calling the "hover" pseudoclass and the "after" means that some HTML will be outputted after the event */
+.x-hover:hover:after{
+    content:"X";
+    opacity:0.4;
+}
+
+.o-hover:hover:after{
+    content:"O";
+    opacity:0.4;
+    color:#618985;
+}
